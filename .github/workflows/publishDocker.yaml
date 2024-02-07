@@ -41,6 +41,5 @@ jobs:
         image: ${{ steps.meta_jupyter.outputs.tags }}
         options: -v ${{ github.workspace }}:/workspace --rm -u root
         run: |
-          ls -lt
-          ls -lt /workspace
+          conda env list
           python /workspace/src/test.py
