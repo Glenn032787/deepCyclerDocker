@@ -9,8 +9,5 @@ COPY environment.yml /app/environment.yml
 
 # Create the Conda environment
 RUN conda env create -f environment.yml
+ENV PATH /opt/conda/envs/DeepCycle/bin:$PATH
 
-ENTRYPOINT ["/bin/bash", "-c", "source activate DeepCycle && exec \"$@\"", "--"]
-
-# Set a default command to run within the Conda environment
-CMD ["echo", "Running default command within DeepCycle environment"]
