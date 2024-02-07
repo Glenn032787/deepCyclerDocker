@@ -10,12 +10,7 @@ COPY environment.yml /app/environment.yml
 # Create the Conda environment
 RUN conda env create -f environment.yml
 
-# Activate the Conda environment when entering the container
-RUN echo "conda activate DeepCycle" >> ~/.bashrc
+ENTRYPOINT ["/bin/bash", "-c", "source activate DeepCycle && exec \"$@\"", "--"]
 
-# Make the Conda environment available for Singularity
-RUN conda init bash
-
-# Set the entry point to bash
-ENTRYPOINT ["conda", "run", "-n", "DeepCycle", "/bin/bash", "-c"]
-CMD ["conda activate DeepCycle"]
+# Set a default command to run within the Conda environment
+CMD ["echo", "Running default command within DeepCycle environment"]
