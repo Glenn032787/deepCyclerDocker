@@ -41,4 +41,4 @@ jobs:
         image: ${{ steps.meta_jupyter.outputs.tags }}
         options: -v ${{ github.workspace }}:/workspace --rm -u root
         run: |
-          python test.py
+          python src/test.py
