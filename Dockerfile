@@ -12,7 +12,7 @@ RUN conda env create -f environment.yml
 
 # Activate the Conda environment when entering the container
 SHELL ["/bin/bash", "-c"]
-RUN echo "conda activate myenv" >> ~/.bashrc
+RUN echo "conda activate DeepCycle" >> ~/.bashrc
 
 # Make the Conda environment available for Singularity
 RUN conda init bash
