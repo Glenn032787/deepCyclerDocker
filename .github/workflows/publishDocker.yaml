@@ -36,9 +36,9 @@ jobs:
         labels: ${{ steps.meta_jupyter.outputs.labels }}
 
     - name: Run Docker container to compile assets
-        uses: addnab/docker-run-action@v3
-        with:
-          image: ${{ steps.meta_jupyter.outputs.tags }}
-          options: -v ${{ github.workspace }}:/workspace --rm -u root
-          run: |
-            python test.py
+      uses: addnab/docker-run-action@v3
+      with:
+        image: ${{ steps.meta_jupyter.outputs.tags }}
+        options: -v ${{ github.workspace }}:/workspace --rm -u root
+        run: |
+          python test.py
