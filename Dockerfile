@@ -18,3 +18,4 @@ RUN conda init bash
 
 # Set the entry point to bash
 ENTRYPOINT ["conda", "run", "-n", "DeepCycle", "/bin/bash", "-c"]
+CMD ["conda activate DeepCycle"]
